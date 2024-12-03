@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Balance</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The balance of {{user}}: {{balance_user}}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">User</th>
+                    <th scope="col">Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{user}}</td>
+                    <td>{{balance_user}}</td>
+                </tr>
+                {% for user_name, balance_of_user in balance.items() %}
+                <tr>
+                    <td>{{user_name}}</td>
+                    <td>{{balance_of_user}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="/">
+            <button>Back to Home</button>
+        </form>
+    </div>
+</body>
+</html>

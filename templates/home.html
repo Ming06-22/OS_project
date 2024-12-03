@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Ledger System</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Distributed Ledger System</h1>
+        <section class="card">
+            <h2>Transaction</h2>
+            <form action="/transaction" method="post">
+                <label>Receiver: </label>
+                <input type="text" name="user">
+                <label>Amount: </label>
+                <input type="number" name="amount">
+                <button type="submit">Transaction</button>
+            </form>
+        </section>
+        <section class="card">
+            <h2>Check Balance</h2>
+            <form action="/check_balance" method="post">
+                <label>Whose balance you want to check: </label>
+                <input type="text" name="user" required>
+                <button type="submit">Check Balance</button>
+            </form>
+        </section>
+        <section class="card">
+            <h2>Check Logs</h2>
+            <form action="/check_logs" method="post">
+                <label>Whose transaction record you want to check: </label>
+                <input type="text" name="user" required>
+                <button type="submit">Check Logs</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
